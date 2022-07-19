@@ -12,6 +12,7 @@ services:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - db:/var/lib/mysql
+    container_name: database
   backend:
     depends_on:
       - mysqldb
@@ -28,6 +29,7 @@ services:
       - DB_PORT=$MYSQLDB_DOCKER_PORT
     stdin_open: true
     tty: true
+    container_name: backend
   frontend:
     depends_on:
       - mysqldb
@@ -44,6 +46,7 @@ services:
       - DB_PORT=$MYSQLDB_DOCKER_PORT
     stdin_open: true
     tty: true
+    container_name: frontend
 
 volumes: 
   db:
