@@ -1,7 +1,6 @@
 FROM node:14
 
+RUN mkdir -p /frontend
 WORKDIR /frontend
-COPY package.json .
-RUN npm install
 COPY . .
-ENTRYPOINT  npm start
+ENTRYPOINT  npm install && npm start

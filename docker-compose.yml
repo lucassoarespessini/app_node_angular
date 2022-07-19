@@ -17,6 +17,8 @@ services:
     depends_on:
       - mysqldb
     build: ./backend
+    volumes:
+      - ./backend:/backend/
     restart: unless-stopped
     env_file: ./.env
     ports:
@@ -34,6 +36,8 @@ services:
     depends_on:
       - mysqldb
     build: ./frontend
+    volumes:
+      - ./frontend:/frontend/
     restart: unless-stopped
     env_file: ./.env
     ports:
@@ -47,3 +51,5 @@ services:
     stdin_open: true
     tty: true
     container_name: frontend
+    
+    
