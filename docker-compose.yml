@@ -47,6 +47,6 @@ services:
     stdin_open: true
     tty: true
     container_name: frontend
-
+    
 volumes: 
   db:
