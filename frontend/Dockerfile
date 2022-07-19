@@ -1,7 +1,8 @@
 FROM node:14
 
-WORKDIR /bezkoder-app
+WORKDIR /frontend
 COPY package.json .
 RUN npm install
 COPY . .
+VOLUME [ "/frontend" ]
 CMD npm start
