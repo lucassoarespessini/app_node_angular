@@ -4,4 +4,4 @@ RUN mkdir -p /frontend
 RUN npm install -g @angular/cli@latest
 WORKDIR /frontend
 COPY . .
-ENTRYPOINT  npm install && npm start
+ENTRYPOINT  npm install &&  npm run build
