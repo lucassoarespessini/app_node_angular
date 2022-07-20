@@ -1,7 +1,8 @@
 database/db/
 backend/node_modules/
 frontend/node_modules/
-frontend/dist
+frontend/dist/*
+!frontend/dist/frontend/empty
 frontend/tmp
 frontend/out-tsc
 frontend/bazel-out
