@@ -33,25 +33,18 @@ services:
     stdin_open: true
     tty: true
     container_name: backend
-  frontend:
+  frontend-dev:
     depends_on:
-      - mysqldb
-    build: ./frontend
+      - backend
+    build: 
+     context: ./frontend
+     dockerfile: Dockerfile-dev
     volumes:
       - ./frontend:/frontend/
     restart: unless-stopped
-    env_file: ./.env
-    ports:
-      - $NODE_LOCAL_PORT_FRONTEND:$NODE_DOCKER_PORT
-    environment:
-      - DB_HOST=mysqldb
-      - DB_USER=$MYSQLDB_USER
-      - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
-      - DB_NAME=$MYSQLDB_DATABASE
-      - DB_PORT=$MYSQLDB_DOCKER_PORT
     stdin_open: true
     tty: true
-    container_name: frontend
+    container_name: frontend-dev
     
     # docker exec -it database  bash -c 'mysql --user="root" --database="bezkoder_db" --password="123456"  < "/home/CreateTable.sql"'
     # docker exec -it database  bash -c 'mysql --user="root" --database="bezkoder_db" --password="123456"  < "/home/InsertInto.sql"'

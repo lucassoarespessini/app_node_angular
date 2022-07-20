@@ -1,48 +1,27 @@
-# Node.js Rest APIs with Express, Sequelize & MySQL example
+# Frontend
 
-For more detail, please visit:
-> [Build Node.js Rest APIs with Express, Sequelize & MySQL](https://bezkoder.com/node-js-express-sequelize-mysql/)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
 
-> [Server side Pagination in Node.js with Sequelize and MySQL](https://bezkoder.com/node-js-sequelize-pagination-mysql/)
+## Development server
 
-> [Deploying/Hosting Node.js app on Heroku with MySQL database](https://bezkoder.com/deploy-node-js-app-heroku-cleardb-mysql/)
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Security:
-> [Node.js Express: JWT example | Token Based Authentication & Authorization](https://bezkoder.com/node-js-jwt-authentication-mysql/)
+## Code scaffolding
 
-Associations:
-> [Sequelize Associations: One-to-Many Relationship example](https://bezkoder.com/sequelize-associate-one-to-many/)
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-> [Sequelize Associations: Many-to-Many Relationship example](https://bezkoder.com/sequelize-associate-many-to-many/)
+## Build
 
-Fullstack:
-> [Vue.js + Node.js + Express + MySQL example](https://bezkoder.com/vue-js-node-js-express-mysql-crud-example/)
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-> [Vue.js + Node.js + Express + MongoDB example](https://bezkoder.com/vue-node-express-mongodb-mevn-crud/)
+## Running unit tests
 
-> [Angular 8 + Node.js + Express + MySQL example](https://bezkoder.com/angular-node-express-mysql/)
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-> [Angular 10 + Node.js + Express + MySQL example](https://bezkoder.com/angular-10-node-js-express-mysql/)
+## Running end-to-end tests
 
-> [Angular 11 + Node.js Express + MySQL example](https://bezkoder.com/angular-11-node-js-express-mysql/)
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-> [Angular 12 + Node.js Express + MySQL example](https://bezkoder.com/angular-12-node-js-express-mysql/)
+## Further help
 
-> [React + Node.js + Express + MySQL example](https://bezkoder.com/react-node-express-mysql/)
-
-Integration (run back-end & front-end on same server/port)
-> [Integrate React with Node.js Restful Services](https://bezkoder.com/integrate-react-express-same-server-port/)
-
-> [Integrate Angular with Node.js Restful Services](https://bezkoder.com/integrate-angular-10-node-js/)
-
-> [Integrate Vue with Node.js Restful Services](https://bezkoder.com/serve-vue-app-express/)
-
-## Project setup
-```
-npm install
-```
-
-### Run
-```
-node server.js
-```
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
