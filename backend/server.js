@@ -25,6 +25,7 @@ var dbConn = mysql.createConnection({
 dbConn.connect(); 
 // Retrieve all users 
 app.get('/users', function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     dbConn.query('SELECT * FROM users', function (error, results, fields) {
         if (error) throw error;
         return res.send({ error: false, data: results, message: 'users list.' });
