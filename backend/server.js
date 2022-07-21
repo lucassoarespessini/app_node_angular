@@ -89,7 +89,7 @@ app.delete('/delete-user', function (req, res) {
     });
 }); 
 // set port
-const PORT = process.env.NODE_DOCKER_PORT || 8080;
+const PORT = process.env.NODE_DOCKER_PORT_BACKEND || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 })
