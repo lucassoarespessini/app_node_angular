@@ -65,3 +65,5 @@ services:
     
     # docker exec -it database  bash -c 'mysql --user="root" --database="bezkoder_db" --password="123456"  < "/home/CreateTable.sql"'
     # docker exec -it database  bash -c 'mysql --user="root" --database="bezkoder_db" --password="123456"  < "/home/InsertInto.sql"'
+    # docker exec -it frontend-dev bash -c "npm run build"
+    # docker exec -it frontend-dev bash -c "cp -r /frontend/dist/frontend/* /frontend/html"
