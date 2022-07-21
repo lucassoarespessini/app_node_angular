@@ -1,7 +1,6 @@
 <div class="container">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h2 class="h2">Users List</h2>
-      <h2 class="h2">{{Users | json}}</h2>
     </div>
     <div class="table-responsive">
       <table class="table table-bordered">
@@ -14,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of Users; let i = index">
+          <tr *ngFor="let user of Users.data; let i = index">
             <th scope="row">{{user._id}}</th>
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
