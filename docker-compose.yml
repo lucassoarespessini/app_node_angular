@@ -33,7 +33,7 @@ services:
     stdin_open: true
     tty: true
     container_name: backend
-  frontend-dev:
+  frontend:
     depends_on:
       - backend
     build: 
@@ -42,26 +42,14 @@ services:
     volumes:
       - ./frontend:/frontend/
     restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $NODE_LOCAL_PORT_FRONTEND:$NODE_DOCKER_PORT_FRONTEND
+    environment:
+      - NODE_DOCKER_PORT_FRONTEND=$NODE_DOCKER_PORT_FRONTEND
     stdin_open: true
     tty: true
-    container_name: frontend-dev
-    # healthcheck:
-    #   test: bash -c "[ -f /frontend/dist/frontend/index.html ]"
-    #   interval: 10s
-    #   timeout: 5s
-    #   retries: 5
-  frontend:
-    depends_on:
-      - frontend-dev
-      # frontend-dev:
-      #   condition: service_healthy
-    build: ./frontend
-    ports:
-      - 80:80
-    volumes:
-      - ./frontend/html:/usr/share/nginx/html/
     container_name: frontend
-    restart: always
     
     # docker exec -it database  bash -c 'mysql --user="root" --database="bezkoder_db" --password="123456"  < "/home/CreateTable.sql"'
     # docker exec -it database  bash -c 'mysql --user="root" --database="bezkoder_db" --password="123456"  < "/home/InsertInto.sql"'
