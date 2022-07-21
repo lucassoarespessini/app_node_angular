@@ -3,12 +3,13 @@ import { User } from './User';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
   // Node/Express API
-  REST_API: string = 'http://localhost:6868';
+  REST_API: string = 'http://'+environment.LOCAL_HOST+':'+environment.LOCAL_PORT;
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) { }
