@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host frontend --port 80",
+    "start": "ng serve --host $NODE_DOCKER_HOST_FRONTEND --port $NODE_DOCKER_PORT_FRONTEND",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
