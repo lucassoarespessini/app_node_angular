@@ -45,20 +45,21 @@ services:
     stdin_open: true
     tty: true
     container_name: frontend-dev
-    healthcheck:
-      test: bash -c "[ -f /frontend/dist/frontend/index.html ]"
-      interval: 10s
-      timeout: 5s
-      retries: 5
+    # healthcheck:
+    #   test: bash -c "[ -f /frontend/dist/frontend/index.html ]"
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 5
   frontend:
     depends_on:
-      frontend-dev:
-        condition: service_healthy
+      - frontend-dev
+      # frontend-dev:
+      #   condition: service_healthy
     build: ./frontend
     ports:
       - 80:80
     volumes:
-      - ./frontend/dist/frontend:/usr/share/nginx/html/
+      - ./frontend/html:/usr/share/nginx/html/
     container_name: frontend
     restart: always
     
