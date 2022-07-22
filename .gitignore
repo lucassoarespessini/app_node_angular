@@ -7,4 +7,3 @@ frontend/out-tsc
 frontend/bazel-out
 frontend/.vscode/
 frontend/html/*
-!frontend/html/empty
