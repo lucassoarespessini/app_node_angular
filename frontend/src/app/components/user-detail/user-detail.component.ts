@@ -21,8 +21,8 @@ export class UserDetailComponent implements OnInit {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.crudService.GetUser(this.getId).subscribe(res => {
       this.updateForm.setValue({
-        name: res['name'],
-        email: res['email'],
+        name: res['data']['name'],
+        email: res['data']['email'],
       });
     });
     this.updateForm = this.formBuilder.group({
