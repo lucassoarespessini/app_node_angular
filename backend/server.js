@@ -7,7 +7,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
- 
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
+
  
 // default route
 app.get('/', function (req, res) {
@@ -48,14 +56,15 @@ app.get('/read-user/:id', function (req, res) {
 });
 // Add a new user  
 app.post('/add-user', function (req, res) {
- 
-    let user = req.body.user;
- 
-    if (!user) {
+    
+    let name = req.body.name;
+    let email = req.body.email;
+    
+    if (!name) {
         return res.status(400).send({ error:true, message: 'Please provide user' });
     }
- 
-    dbConn.query("INSERT INTO users SET ? ", { user: user }, function (error, results, fields) {
+    
+    dbConn.query("INSERT INTO users (name,email) VALUES (?,?) ", [name, email], function (error, results, fields) {
         if (error) throw error;
         return res.send({ error: false, data: results, message: 'New user has been created successfully.' });
     });
@@ -77,7 +86,7 @@ app.put('/update-user', function (req, res) {
 });
 //  Delete user
 app.delete('/delete-user', function (req, res) {
- 
+    
     let user_id = req.body.user_id;
  
     if (!user_id) {
