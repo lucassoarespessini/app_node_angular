@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddUserComponent } from './components/add-user/add-user.component';
-import { DetailDetailComponent } from './components/detail-detail/detail-detail.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     AddUserComponent,
-    DetailDetailComponent,
+    UserDetailComponent,
     UsersListComponent
   ],
   imports: [
