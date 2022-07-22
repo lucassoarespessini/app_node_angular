@@ -71,16 +71,17 @@ app.post('/add-user', function (req, res) {
     });
 });
 //  Update user with id
-app.put('/update-user', function (req, res) {
+app.put('/update-user/:id', function (req, res) {
  
-    let user_id = req.body.user_id;
-    let user = req.body.user;
+    let user_id = req.params.id;
+    let name = req.body.name;
+    let email = req.body.email;
  
-    if (!user_id || !user) {
+    if (!user_id || !name || !email) {
         return res.status(400).send({ error: user, message: 'Please provide user and user_id' });
     }
  
-    dbConn.query("UPDATE users SET user = ? WHERE id = ?", [user, user_id], function (error, results, fields) {
+    dbConn.query("UPDATE users SET name = ?, email = ? WHERE id = ?", [name, email , user_id], function (error, results, fields) {
         if (error) throw error;
         return res.send({ error: false, data: results, message: 'user has been updated successfully.' });
     });
