@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
+var cors = require("cors");
+
  
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -14,7 +16,7 @@ app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
-
+app.use(cors());
 
  
 // default route
@@ -33,7 +35,6 @@ var dbConn = mysql.createConnection({
 dbConn.connect(); 
 // Retrieve all users 
 app.get('/users', function (req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
     dbConn.query('SELECT * FROM users', function (error, results, fields) {
         if (error) throw error;
         return res.send({ error: false, data: results, message: 'users list.' });
@@ -85,9 +86,8 @@ app.put('/update-user', function (req, res) {
     });
 });
 //  Delete user
-app.delete('/delete-user', function (req, res) {
-    
-    let user_id = req.body.user_id;
+app.delete('/delete-user/:_id', function (req, res) {
+    let user_id = req.params._id;
  
     if (!user_id) {
         return res.status(400).send({ error: true, message: 'Please provide user_id' });
