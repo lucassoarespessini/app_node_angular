@@ -139,6 +139,81 @@ app.get('/image/:produto/:id', function (req, res) {
     );
     
 });
+
+app.get('/produtos', function (req, res) {
+    dbConn.query('SELECT * FROM produtos', function (error, results, fields) {
+        if (error) throw error;
+        return res.send({ error: false, data: results, message: 'Produtos list.' });
+    });
+});
+app.get('/read-produto/:id', function (req, res) {
+ 
+    let produto_id = req.params.id;
+ 
+    if (!produto_id) {
+        return res.status(400).send({ error: true, message: 'Please provide produto_id' });
+    }
+ 
+    dbConn.query('SELECT * FROM produtos where id=?', produto_id, function (error, results, fields) {
+        if (error) throw error;
+        return res.send({ error: false, data: results[0], message: 'produtos list.' });
+    });
+ 
+});
+// Add a new produto  
+app.post('/add-produto', function (req, res) {
+    
+    let nome = req.body.nome
+    let imagem = req.body.imagem
+    let descricao = req.body.descricao
+    let estoque = req.body.estoque
+    let status = req.body.status
+    let preco = req.body.preco
+    
+    if (!nome) {
+        return res.status(400).send({ error:true, message: 'Please provide produto' });
+    }
+    
+    dbConn.query("INSERT INTO produtos (nome,imagem,descricao,estoque,status,preco) VALUES (?,?,?,?,?,?) ", [nome,imagem,descricao,estoque,status,preco], function (error, results, fields) {
+        if (error) throw error;
+        return res.send({ error: false, data: results, message: 'New produto has been created successfully.' });
+    });
+});
+//  Update produto with id
+app.put('/update-produto/:id', function (req, res) {
+ 
+    let produto_id = req.params.id;
+    let nome = req.body.nome
+    let imagem = req.body.imagem
+    let descricao = req.body.descricao
+    let estoque = req.body.estoque
+    let status = req.body.status
+    let preco = req.body.preco
+    
+ 
+
+ 
+    if (!produto_id) {
+        return res.status(400).send({ error: produto_id, message: 'Please provide produto and produto_id' });
+    }
+ 
+    dbConn.query("UPDATE produtos SET nome = ?, imagem = ?, descricao = ?, estoque = ?, status = ?, preco = ? WHERE id = ?", [nome ,imagem ,descricao ,estoque ,status ,preco , produto_id], function (error, results, fields) {
+        if (error) throw error;
+        return res.send({ error: false, data: results, message: 'produto has been updated successfully.' });
+    });
+});
+//  Delete produto
+app.delete('/delete-produto/:_id', function (req, res) {
+    let produto_id = req.params._id;
+ 
+    if (!produto_id) {
+        return res.status(400).send({ error: true, message: 'Please provide produto_id' });
+    }
+    dbConn.query('DELETE FROM produtos WHERE id = ?', [produto_id], function (error, results, fields) {
+        if (error) throw error;
+        return res.send({ error: false, data: results, message: 'Produto has been updated successfully.' });
+    });   
+});
 // set port
 const PORT = process.env.NODE_DOCKER_PORT_BACKEND || 8080;
 app.listen(PORT, () => {
