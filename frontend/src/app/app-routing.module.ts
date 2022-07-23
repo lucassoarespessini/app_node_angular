@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'produto-listagem', component: ProdutoListagemComponent },
   { path: 'produto-cadastro', component: ProdutoCadastroComponent },
   { path: 'produto-detalhes', component: ProdutoDetalhesComponent },
-  { path: 'produto-editar', component: ProdutoEditarComponent }
+  { path: 'produto-editar/:id', component: ProdutoEditarComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
