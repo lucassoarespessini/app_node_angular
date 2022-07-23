@@ -1,5 +1,6 @@
 database/db/
 backend/node_modules/
+backend/image/*
 frontend/node_modules/
 frontend/dist/*
 frontend/tmp
