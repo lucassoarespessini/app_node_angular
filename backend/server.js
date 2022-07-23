@@ -117,6 +117,28 @@ app.post('/upload', function (req, res) {
     }
     
 });
+
+app.get('/image/:produto/:id', function (req, res) {
+
+    let produto = req.params.produto;
+    let id = req.params.id;
+    
+    fs.readFile(
+        `../backend/image/${produto}/${id}.png`,
+
+        function (err, image) {
+            if (err) {
+                throw err;
+            }
+            
+            res.setHeader('Content-Type', 'image/jpg');
+            res.setHeader('Content-Length', ''); // Image size here
+            res.setHeader('Access-Control-Allow-Origin', '*'); // If needs to be public
+            res.send(image);
+        }
+    );
+    
+});
 // set port
 const PORT = process.env.NODE_DOCKER_PORT_BACKEND || 8080;
 app.listen(PORT, () => {
