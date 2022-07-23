@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from './User';
+import { Produto } from './Produto';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -50,6 +51,43 @@ export class CrudService {
         catchError(this.handleError)
       )
   }
+  // Add
+AddProduto(data: Produto): Observable<any> {
+  let API_URL = `${this.REST_API}/add-produto`;
+  return this.httpClient.post(API_URL, data)
+    .pipe(
+      catchError(this.handleError)
+    )
+}
+// Get all objects
+GetProdutos() {
+  return this.httpClient.get(`${this.REST_API}/produtos`);
+}
+// Get single object
+GetProduto(id:any): Observable<any> {
+  let API_URL = `${this.REST_API}/read-produto/${id}`;
+  return this.httpClient.get(API_URL, { headers: this.httpHeaders })
+    .pipe(map((res: any) => {
+        return res || {}
+      }),
+      catchError(this.handleError)
+    )
+}
+// Update
+updateProduto(id:any, data:any): Observable<any> {
+  let API_URL = `${this.REST_API}/update-produto/${id}`;
+  return this.httpClient.put(API_URL, data, { headers: this.httpHeaders })
+    .pipe(
+      catchError(this.handleError)
+    )
+}
+// Delete
+deleteProduto(id:any): Observable<any> {
+  let API_URL = `${this.REST_API}/delete-produto/${id}`;
+  return this.httpClient.delete(API_URL, { headers: this.httpHeaders}).pipe(
+      catchError(this.handleError)
+    )
+}
   // Error 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

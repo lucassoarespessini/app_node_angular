@@ -11,6 +11,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import {MatIconModule} from '@angular/material/icon';
+import { ProdutoListagemComponent } from './components/produto-listagem/produto-listagem.component';
+import { ProdutoCadastroComponent } from './components/produto-cadastro/produto-cadastro.component';
+import { ProdutoDetalhesComponent } from './components/produto-detalhes/produto-detalhes.component';
+import { ProdutoEditarComponent } from './components/produto-editar/produto-editar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import {MatIconModule} from '@angular/material/icon';
     AddUserComponent,
     UserDetailComponent,
     UsersListComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    ProdutoListagemComponent,
+    ProdutoCadastroComponent,
+    ProdutoDetalhesComponent,
+    ProdutoEditarComponent
   ],
   imports: [
     BrowserModule,
