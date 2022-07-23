@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var cors = require("cors");
+var fileUpload = require('express-fileupload');
 
  
 app.use(bodyParser.json());
@@ -17,6 +18,7 @@ app.use(function(req, res, next) {
     next();
 });
 app.use(cors());
+app.use(fileUpload());
 
  
 // default route
@@ -100,12 +102,12 @@ app.delete('/delete-user/:_id', function (req, res) {
 }); 
 app.post('/upload', function (req, res) {
     
-    let body = req.body;
+    let file = req['files'].thumbnail;
     
-    if (!body) {
+    if (!file) {
         return res.status(400).send({ error:true, message: 'Passou por aqui' });
     }else{
-        return res.send({ error: false, data: JSON.stringify(body), message: 'Passou por aqui' });
+        return res.send({ error: false, data: JSON.stringify(file), message: 'Passou por aqui' });
     }
     
 });
