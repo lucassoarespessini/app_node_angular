@@ -28,6 +28,7 @@
             
   
             <td class="text-center">
+              <button class="btn btn-sm btn-primary" routerLink="/produto-detalhes/{{produto.id}}">Detalhes</button>
               <button class="btn btn-sm btn-primary" routerLink="/produto-editar/{{produto.id}}">Edit</button>
               <button class="btn btn-sm btn-danger" (click)="delete(produto.id, i)">Delete</button>
           </tr>

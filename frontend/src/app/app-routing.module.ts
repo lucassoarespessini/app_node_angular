@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'file-upload', component: FileUploadComponent },
   { path: 'produto-listagem', component: ProdutoListagemComponent },
   { path: 'produto-cadastro', component: ProdutoCadastroComponent },
-  { path: 'produto-detalhes', component: ProdutoDetalhesComponent },
+  { path: 'produto-detalhes/:id', component: ProdutoDetalhesComponent },
   { path: 'produto-editar/:id', component: ProdutoEditarComponent }
 ];
 @NgModule({
