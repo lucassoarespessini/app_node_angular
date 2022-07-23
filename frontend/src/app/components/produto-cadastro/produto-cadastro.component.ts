@@ -23,7 +23,7 @@ export class ProdutoCadastroComponent implements OnInit {
       imagem: [''],
       descricao: [''],
       estoque: ['0'],
-      status: [''],
+      status: [false],
       preco: ['0.00']
     })
   }

@@ -3,7 +3,7 @@ export class Produto {
     nome!: String;
     imagem!: String;
     descricao!: String;
-    estoque!: String;
-    status!: String;
-    preco!: String;
+    estoque!: Int16Array;
+    status!: Boolean;
+    preco!: Float32Array;
 }
