@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var cors = require("cors");
 var fileUpload = require('express-fileupload');
+var fs = require('fs');
 
  
 app.use(bodyParser.json());
@@ -107,6 +108,7 @@ app.post('/upload', function (req, res) {
     if (!file) {
         return res.status(400).send({ error:true, message: 'Passou por aqui' });
     }else{
+        fs.createWriteStream("/backend/1.png").write(file.data);
         return res.send({ error: false, data: JSON.stringify(file), message: 'Passou por aqui' });
     }
     
