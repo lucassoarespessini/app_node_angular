@@ -96,8 +96,19 @@ app.delete('/delete-user/:_id', function (req, res) {
     dbConn.query('DELETE FROM users WHERE id = ?', [user_id], function (error, results, fields) {
         if (error) throw error;
         return res.send({ error: false, data: results, message: 'User has been updated successfully.' });
-    });
+    });   
 }); 
+app.post('/upload', function (req, res) {
+    
+    let body = req.body;
+    
+    if (!body) {
+        return res.status(400).send({ error:true, message: 'Passou por aqui' });
+    }else{
+        return res.send({ error: false, data: JSON.stringify(body), message: 'Passou por aqui' });
+    }
+    
+});
 // set port
 const PORT = process.env.NODE_DOCKER_PORT_BACKEND || 8080;
 app.listen(PORT, () => {
