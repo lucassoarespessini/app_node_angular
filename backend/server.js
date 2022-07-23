@@ -108,8 +108,12 @@ app.post('/upload', function (req, res) {
     if (!file) {
         return res.status(400).send({ error:true, message: 'Passou por aqui' });
     }else{
-        fs.createWriteStream("/backend/1.png").write(file.data);
-        return res.send({ error: false, data: JSON.stringify(file), message: 'Passou por aqui' });
+        let dir = './image/image/';
+        if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir, { recursive: true });
+        }
+        fs.createWriteStream(dir+"1.png").write(file.data);
+        return res.send({ error: false, data: file.name, message: 'Passou por aqui' });
     }
     
 });
