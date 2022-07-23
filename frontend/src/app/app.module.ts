@@ -9,12 +9,16 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import {MatIconModule} from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
     UserDetailComponent,
-    UsersListComponent
+    UsersListComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
