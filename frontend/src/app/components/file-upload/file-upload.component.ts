@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -11,25 +11,25 @@ import { environment } from '../../../environments/environment';
 export class FileUploadComponent {
 
   fileName = '';
-  REST_API: string = 'http://'+environment.LOCAL_HOST+':'+environment.LOCAL_PORT;
+  REST_API: string = 'http://' + environment.LOCAL_HOST + ':' + environment.LOCAL_PORT;
 
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-    onFileSelected(event:any) {
+  onFileSelected(event: any) {
 
-        const file:File = event.target.files[0];
+    const file: File = event.target.files[0];
 
-        if (file) {
+    if (file) {
 
-            this.fileName = file.name;
+      this.fileName = file.name;
 
-            const formData = new FormData();
+      const formData = new FormData();
 
-            formData.append("thumbnail", file);
+      formData.append("thumbnail", file);
 
-            const upload$ = this.http.post(`${this.REST_API}/upload`, formData);
+      const upload$ = this.http.post(`${this.REST_API}/upload`, formData);
 
-            upload$.subscribe();
-        }
+      upload$.subscribe();
     }
+  }
 }
