@@ -11,6 +11,7 @@ import { ProdutoListagemComponent } from './components/produto-listagem/produto-
 import { ProdutoCadastroComponent } from './components/produto-cadastro/produto-cadastro.component';
 import { ProdutoDetalhesComponent } from './components/produto-detalhes/produto-detalhes.component';
 import { ProdutoEditarComponent } from './components/produto-editar/produto-editar.component';
+import { ProdutoTabelaComponent } from './components/produto-tabela/produto-tabela.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProdutoEditarComponent } from './components/produto-editar/produto-edit
     ProdutoListagemComponent,
     ProdutoCadastroComponent,
     ProdutoDetalhesComponent,
-    ProdutoEditarComponent
+    ProdutoEditarComponent,
+    ProdutoTabelaComponent
   ],
   imports: [
     BrowserModule,
