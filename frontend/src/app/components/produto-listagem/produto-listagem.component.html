@@ -15,6 +15,10 @@
               </a>
               <h6>R${{produto.preco}}</h6>
               <p>{{produto.descricao}}</p>
+              <fieldset>
+                <button class="button-editar" routerLink="/produto-editar/{{produto.id}}">Editar</button>
+                <button class="button-editar" (click)="delete(produto.id, i)">Delete</button>
+              </fieldset>
             </div>
           </div>
         </div>
