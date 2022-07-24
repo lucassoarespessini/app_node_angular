@@ -1,38 +1,38 @@
 <div class="container">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <h2 class="h2">Produtos List</h2>
-    </div>
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">nome</th>
-            <th scope="col">imagem</th>
-            <th scope="col">descricao</th>
-            <th scope="col">estoque</th>
-            <th scope="col">status</th>
-            <th scope="col">preco</th>
-            <th class="text-center" scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let produto of Produtos.data; let i = index">
-            <th scope="row">{{produto.id}}</th>
-            <td>{{produto.nome}}</td>
-            <td>{{produto.imagem}}</td>
-            <td>{{produto.descricao}}</td>
-            <td>{{produto.estoque}}</td>
-            <td>{{produto.status}}</td>
-            <td>{{produto.preco}}</td>
-            
-  
-            <td class="text-center">
-              <button class="btn btn-sm btn-primary" routerLink="/produto-detalhes/{{produto.id}}">Detalhes</button>
-              <button class="btn btn-sm btn-primary" routerLink="/produto-editar/{{produto.id}}">Edit</button>
-              <button class="btn btn-sm btn-danger" (click)="delete(produto.id, i)">Delete</button>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Produtos List</h2>
   </div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">nome</th>
+          <th scope="col">imagem</th>
+          <th scope="col">descricao</th>
+          <th scope="col">estoque</th>
+          <th scope="col">status</th>
+          <th scope="col">preco</th>
+          <th class="text-center" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of Produtos.data; let i = index">
+          <th scope="row">{{produto.id}}</th>
+          <td>{{produto.nome}}</td>
+          <td><img style="max-width: 150px;" src="{{REST_API+'/image/'+produto.imagem}}"></td>
+          <td>{{produto.descricao}}</td>
+          <td>{{produto.estoque}}</td>
+          <td>{{produto.status}}</td>
+          <td>{{produto.preco}}</td>
+
+
+          <td class="text-center">
+            <button class="btn btn-sm btn-primary" routerLink="/produto-detalhes/{{produto.id}}">Detalhes</button>
+            <button class="btn btn-sm btn-primary" routerLink="/produto-editar/{{produto.id}}">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="delete(produto.id, i)">Delete</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

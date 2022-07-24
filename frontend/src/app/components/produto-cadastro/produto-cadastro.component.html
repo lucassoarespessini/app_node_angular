@@ -11,8 +11,9 @@
                     #fileUpload>
 
                 <div class="file-upload">
+                    {{fileName=="" ? "No file uploaded yet." : fileName }}
+                    <img style="max-width: 150px;" src="{{REST_API+'/image/'+fileName}}">
 
-                    {{fileName || "No file uploaded yet."}}
 
                     <button type="button" mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
                         <mat-icon>attach_file</mat-icon>
