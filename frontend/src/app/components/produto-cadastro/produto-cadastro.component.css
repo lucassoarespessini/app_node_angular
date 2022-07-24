@@ -13226,7 +13226,7 @@ footer .inner-content p a {
     height: 44px;
     display: inline-block;
     line-height: 42px;
-    border: 1px solid #eee;
+    border: 3px solid #eee;
     border-radius: 0px;
     margin-bottom: 30px;
 }
@@ -13472,4 +13472,8 @@ footer .inner-content p a {
 .campos-juntos-label {
     display: flex;
 
+}
+
+label {
+    padding: 10px;
 }
