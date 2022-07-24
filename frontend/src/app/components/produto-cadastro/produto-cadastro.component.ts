@@ -2,8 +2,11 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { CrudService } from './../../service/crud.service';
 import { FormGroup, FormBuilder } from "@angular/forms";
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { catchError, map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+
 
 
 @Component({
@@ -47,16 +50,20 @@ export class ProdutoCadastroComponent implements OnInit {
 
       formData.append("thumbnail", file);
 
-      const upload$ = this.http.post(`${this.REST_API}/upload`, formData);
+      const upload$ = this.http.post(`${this.REST_API}/upload`, formData).pipe(map((res: any) => {
+        return res || {}
+      }),
+        catchError(this.handleError)
+      );
 
       upload$.subscribe(res => {
-        this.fileName = res;
-
+        this.fileName = res['data'];
       });
 
     }
   }
   onSubmit(): any {
+    this.produtoForm.value.imagem = this.fileName;
     this.crudService.AddProduto(this.produtoForm.value)
       .subscribe(() => {
         console.log('Produto added successfully!')
@@ -64,6 +71,19 @@ export class ProdutoCadastroComponent implements OnInit {
       }, (err) => {
         console.log(err);
       });
+  }
+
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Handle client error
+      errorMessage = error.error.message;
+    } else {
+      // Handle server error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
   }
 
 }
