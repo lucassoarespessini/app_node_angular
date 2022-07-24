@@ -48,7 +48,8 @@ export class ProdutoCadastroComponent implements OnInit {
 
       const formData = new FormData();
 
-      formData.append("thumbnail", file);
+      formData.append("file", file);
+      formData.append("file_name", this.fileName);
 
       const upload$ = this.http.post(`${this.REST_API}/upload`, formData).pipe(map((res: any) => {
         return res || {}

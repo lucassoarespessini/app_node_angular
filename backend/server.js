@@ -93,6 +93,7 @@ app.put('/update-user/:id', function (req, res) {
 app.delete('/delete-user/:_id', function (req, res) {
     let user_id = req.params._id;
 
+
     if (!user_id) {
         return res.status(400).send({ error: true, message: 'Please provide user_id' });
     }
@@ -103,13 +104,18 @@ app.delete('/delete-user/:_id', function (req, res) {
 });
 app.post('/upload', function (req, res) {
 
-    let file = req['files'].thumbnail;
+    let file = req['files'].file;
+    let previous_file_name = req.body.file_name;
+
 
 
     if (!file) {
         return res.status(400).send({ error: true, message: 'Passou por aqui' });
     } else {
         let dir = './image/image/';
+        if (previous_file_name) {
+            fs.unlinkSync(dir + previous_file_name + '.jpg');
+        }
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
         }
