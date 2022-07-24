@@ -216,9 +216,22 @@ app.delete('/delete-produto/:_id', function (req, res) {
     if (!produto_id) {
         return res.status(400).send({ error: true, message: 'Please provide produto_id' });
     }
+
+    dbConn.query('SELECT imagem FROM produtos where id=?', produto_id, function (error, results, fields) {
+        if (error) throw error;
+        let value_of_image = null;
+        value_of_image = results[0];
+        let dir = './image/image/';
+        if (value_of_image.imagem) {
+            fs.unlinkSync(dir + value_of_image.imagem + '.jpg');
+        }
+        return true;
+    });
+
+
     dbConn.query('DELETE FROM produtos WHERE id = ?', [produto_id], function (error, results, fields) {
         if (error) throw error;
-        return res.send({ error: false, data: results, message: 'Produto has been updated successfully.' });
+        return res.send({ error: false, data: results[0], message: 'Produto has been updated successfully.' });
     });
 });
 // set port
