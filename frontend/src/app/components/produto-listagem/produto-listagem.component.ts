@@ -14,7 +14,7 @@ export class ProdutoListagemComponent implements OnInit {
   REST_API: string = 'http://' + environment.LOCAL_HOST + ':' + environment.LOCAL_PORT;
   constructor(private crudService: CrudService) { }
   ngOnInit(): void {
-    this.crudService.GetProdutos().subscribe(res => {
+    this.crudService.GetVisiveisProdutos().subscribe(res => {
       console.log(res)
       this.Produtos = res;
     });

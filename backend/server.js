@@ -171,6 +171,15 @@ app.delete('/delete-produto/:_id', function (req, res) {
         return res.send({ error: false, data: results[0], message: 'Produto has been updated successfully.' });
     });
 });
+
+
+app.get('/produtos-visiveis', function (req, res) {
+    dbConn.query('SELECT * FROM produtos WHERE status IS TRUE', function (error, results, fields) {
+        if (error) throw error;
+        return res.send({ error: false, data: results, message: 'Produtos list.' });
+    });
+});
+
 // set port
 const PORT = process.env.NODE_DOCKER_PORT_BACKEND || 8080;
 app.listen(PORT, () => {
