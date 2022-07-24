@@ -14,7 +14,7 @@ import { environment } from '../../../environments/environment';
 export class ProdutoCadastroComponent implements OnInit {
 
   produtoForm: FormGroup;
-  fileName = '';
+  fileName: any = [];
   REST_API: string = 'http://' + environment.LOCAL_HOST + ':' + environment.LOCAL_PORT;
 
 
@@ -41,7 +41,7 @@ export class ProdutoCadastroComponent implements OnInit {
 
     if (file) {
 
-      this.fileName = file.name;
+      console.log(file)
 
       const formData = new FormData();
 
@@ -49,7 +49,11 @@ export class ProdutoCadastroComponent implements OnInit {
 
       const upload$ = this.http.post(`${this.REST_API}/upload`, formData);
 
-      upload$.subscribe();
+      upload$.subscribe(res => {
+        this.fileName = res;
+
+      });
+
     }
   }
   onSubmit(): any {
