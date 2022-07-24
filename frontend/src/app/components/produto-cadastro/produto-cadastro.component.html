@@ -60,7 +60,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" style="border:2px solid #eee; padding: 10px;">
                     <input type="file" (change)="onFileSelected($event)" #fileUpload>
                     - {{fileName=="" ? "No file uploaded yet." : fileName }}
                     <div>
