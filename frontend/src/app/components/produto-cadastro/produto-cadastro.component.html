@@ -60,7 +60,9 @@
                 <div class="col-md-6">
                     <input type="file" (change)="onFileSelected($event)" #fileUpload>
                     - {{fileName=="" ? "No file uploaded yet." : fileName }}
-                    <img src="{{REST_API+'/image/'+fileName}}">
+                    <div>
+                        <img src="{{REST_API+'/image/'+fileName}}" class="right-image-cadastro">
+                    </div>
                 </div>
             </div>
         </div>

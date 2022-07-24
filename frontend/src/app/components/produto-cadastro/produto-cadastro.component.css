@@ -13463,3 +13463,7 @@ footer .inner-content p a {
         bottom: 0;
     }
 }
+.right-image-cadastro {
+    width: -webkit-fill-available;
+
+}
