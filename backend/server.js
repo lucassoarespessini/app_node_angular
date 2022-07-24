@@ -114,7 +114,9 @@ app.post('/upload', function (req, res) {
     } else {
         let dir = './image/image/';
         if (previous_file_name) {
-            fs.unlinkSync(dir + previous_file_name + '.jpg');
+            if (fs.existsSync(dir + previous_file_name + '.jpg')) {
+                fs.unlinkSync(dir + previous_file_name + '.jpg');
+            }
         }
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });

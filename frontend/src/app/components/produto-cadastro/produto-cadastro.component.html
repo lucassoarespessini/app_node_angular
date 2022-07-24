@@ -19,12 +19,13 @@
                                             placeholder="Nome do Produto" required="">
                                     </fieldset>
                                 </div>
-                                <input formControlName="imagem" type="hidden" class="form-control"
+                                <input class="form-control" formControlName="imagem" type="hidden" class="form-control"
                                     placeholder="Nome do Produto" required="">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <label>Estoque:</label>
                                     <fieldset>
-                                        <input type="number" min="0" step="1" formControlNa me="estoque" required>
+                                        <input formControlName="estoque" type="number" min="0" step="1"
+                                            class="form-control" required>
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -36,15 +37,14 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <fieldset>
                                         <label>Preço:</label>
-                                        <input class="form-control" type="number" min="0" step="0.01" formContro
-                                            lName="preco" required>
+                                        <input formControlName="preco" type="number" min="0" step="0.01"
+                                            class="form-control" required>
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">
                                     <fieldset>
                                         <label>Descrição:</label>
-                                        <textarea nformControlName="descricao" requ ired
-                                            placeholder="Descrição"></textarea>
+                                        <textarea formControlName="descricao" class="form-control"></textarea>
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">
