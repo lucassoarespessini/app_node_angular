@@ -11,19 +11,16 @@ services:
     ports:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
+      - ./database/db:/var/lib/mysql
       - ./database/sql-scripts:/home
     container_name: database
-    healthcheck:
-      test: bash -c 'mysql --user="root" --database="jet_store_db" --password="123456"  < "/home/CreateTable.sql"'
-      interval: 20s
-      timeout: 30s
-      retries: 500
   backend:
     depends_on:
-      mysqldb:
-        condition: service_healthy
+      - mysqldb
     build: ./backend
-    restart: always
+    volumes:
+      - ./backend:/backend/
+    restart: unless-stopped
     env_file: ./.env
     ports:
       - $NODE_LOCAL_PORT_BACKEND:$NODE_DOCKER_PORT_BACKEND
@@ -40,13 +37,22 @@ services:
   frontend:
     depends_on:
       - backend
-    build: ./frontend
+    build: 
+     context: ./frontend
+     dockerfile: Dockerfile-dev
+    volumes:
+      - ./frontend:/frontend/
     restart: unless-stopped
     env_file: ./.env
     ports:
-      - $NODE_LOCAL_PORT_FRONTEND:80
+      - $NODE_LOCAL_PORT_FRONTEND:$NODE_DOCKER_PORT_FRONTEND
+    environment:
+      - NODE_DOCKER_PORT_FRONTEND=$NODE_DOCKER_PORT_FRONTEND
+      - NODE_DOCKER_HOST_FRONTEND=$NODE_DOCKER_HOST_FRONTEND
     stdin_open: true
     tty: true
     container_name: frontend
-    # docker exec -it database  bash -c 'mysql --user="root" --database="jet_store_db" --password="123456"  < "/home/CreateTable.sql"'
-    # docker exec -it database  bash -c 'mysql --user="root" --database="jet_store_db" --password="123456"  < "/home/InsertInto.sql"'
+    
+    # docker exec -it database  bash -c 'mysql --user="root" --database="bezkoder_db" --password="123456"  < "/home/CreateTable.sql"'
+    # docker exec -it database  bash -c 'mysql --user="root" --database="bezkoder_db" --password="123456"  < "/home/InsertInto.sql"'
+    

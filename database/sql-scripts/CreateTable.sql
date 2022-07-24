@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS produtos;
+-- DROP TABLE IF EXISTS produtos;
 
   CREATE TABLE IF NOT EXISTS produtos (
     id int(11) NOT NULL,
