@@ -11,6 +11,7 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Preço</th>
                             <th scope="col">Estoque</th>
+                            <th scope="col">Visível</th>
                             <th class="text-center" scope="col">Action</th>
                         </tr>
                     </thead>
@@ -20,6 +21,7 @@
                             <td>{{produto.nome}}</td>
                             <td>R${{produto.preco}}</td>
                             <td>{{produto.estoque}}</td>
+                            <td>{{produto.status=="1" ? "Sim" : "Não" }}</td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-primary"
                                     routerLink="/produto-editar/{{produto.id}}">Editar</button>
