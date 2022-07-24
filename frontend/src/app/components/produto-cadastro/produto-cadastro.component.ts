@@ -17,7 +17,7 @@ import { Observable, throwError } from 'rxjs';
 export class ProdutoCadastroComponent implements OnInit {
 
   produtoForm: FormGroup;
-  fileName: any = [];
+  fileName: any = '';
   REST_API: string = 'http://' + environment.LOCAL_HOST + ':' + environment.LOCAL_PORT;
 
 
