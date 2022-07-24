@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from './../../service/crud.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -12,17 +13,18 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProdutoDetalhesComponent implements OnInit {
 
   getId: any;
-  Produto:any = [];
+  Produto: any = [];
+  REST_API: string = 'http://' + environment.LOCAL_HOST + ':' + environment.LOCAL_PORT;
   constructor(
     private crudService: CrudService,
     private activatedRoute: ActivatedRoute,
-    ) { }
+  ) { }
   ngOnInit(): void {
     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
     this.crudService.GetProduto(this.getId).subscribe(res => {
-      this.Produto =res;
-    
-  });
-}
+      this.Produto = res;
+
+    });
+  }
 
 }

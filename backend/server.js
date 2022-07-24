@@ -5,8 +5,6 @@ var mysql = require('mysql');
 var cors = require("cors");
 var fileUpload = require('express-fileupload');
 var fs = require('fs');
-var glob = require("glob")
-var options = []
 
 
 app.use(bodyParser.json());
