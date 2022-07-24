@@ -1,4 +1,5 @@
-database/db/
+database/db/*
+!database/db/empty
 backend/node_modules/
 backend/image/*
 frontend/node_modules/
