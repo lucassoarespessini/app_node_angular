@@ -1,1 +1,33 @@
-<p>produto-tabela works!</p>
+<body>
+
+
+    <div class="latest-products">
+        <div class="container">
+            <div class="row">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Preço</th>
+                            <th class="text-center" scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let produto of Produtos.data; let i = index">
+                            <th scope="row">{{produto.id}}</th>
+                            <td>{{produto.nome}}</td>
+                            <td>R${{produto.preco}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-primary"
+                                    routerLink="/produto-editar/{{produto.id}}">Editar</button>
+                                <button class="btn btn-sm btn-danger" (click)="delete(produto.id,
+                    i)">Deletar</button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
