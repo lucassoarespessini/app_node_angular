@@ -13,7 +13,7 @@
                         <form [formGroup]="produtoForm" (ngSubmit)="onSubmit()">
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <fieldset>
+                                    <fieldset class="campos-juntos-label">
                                         <label>Nome:</label>
                                         <input formControlName="nome" type="text" class="form-control"
                                             placeholder="Nome do Produto" required="">
@@ -21,25 +21,28 @@
                                 </div>
                                 <input class="form-control" formControlName="imagem" type="hidden" class="form-control"
                                     placeholder="Nome do Produto" required="">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <label>Estoque:</label>
-                                    <fieldset>
-                                        <input formControlName="estoque" type="number" min="0" step="1"
-                                            class="form-control" required>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <fieldset>
-                                        <label>Status:</label>
-                                        <input class="form-control" type="checkbox" formControlName="status" required>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <fieldset>
-                                        <label>Preço:</label>
-                                        <input formControlName="preco" type="number" min="0" step="0.01"
-                                            class="form-control" required>
-                                    </fieldset>
+                                <div class="col-lg-12 col-md-12 col-sm-12" class="campos-juntos-label">
+                                    <div class="col-sm-4">
+                                        <fieldset class="campos-juntos-label">
+                                            <label>Estoque:</label>
+                                            <input formControlName="estoque" type="number" min="0" step="1"
+                                                class="form-control" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <fieldset class="campos-juntos-label">
+                                            <label>Preço:</label>
+                                            <input formControlName="preco" type="number" min="0" step="0.01"
+                                                class="form-control" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <fieldset class="campos-juntos-label">
+                                            <label>Status:</label>
+                                            <input class="form-control" type="checkbox" formControlName="status"
+                                                required>
+                                        </fieldset>
+                                    </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <fieldset>

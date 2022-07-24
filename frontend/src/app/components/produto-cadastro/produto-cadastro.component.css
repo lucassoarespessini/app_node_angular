@@ -13463,7 +13463,13 @@ footer .inner-content p a {
         bottom: 0;
     }
 }
+
 .right-image-cadastro {
     width: -webkit-fill-available;
+
+}
+
+.campos-juntos-label {
+    display: flex;
 
 }
