@@ -1,10 +1,26 @@
-<div class="row justify-content-center mt-5">
-    <div class="col-md-4">
-        <label>nome: {{Produto.data.nome}}</label><br>
-        <label>imagem: <img style="max-width: 150px;" src="{{REST_API+'/image/'+Produto.data.imagem}}"></label><br>
-        <label>descricao: {{Produto.data.descricao}}</label><br>
-        <label>estoque: {{Produto.data.estoque}}</label><br>
-        <label>status: {{Produto.data.status}}</label><br>
-        <label>preco: {{Produto.data.preco}}</label><br>
+<body>
+    <div class="best-features about-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2> {{Produto.data.nome}}</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="right-image">
+                        <img src="{{REST_API+'/image/'+Produto.data.imagem}}" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="left-content">
+                        <h4>R${{Produto.data.preco}}</h4>
+                        <p>{{Produto.data.descricao}}</p>
+                        <p>Estoque: {{Produto.data.estoque}}</p>
+                        <p>Status: {{Produto.data.status}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</body>

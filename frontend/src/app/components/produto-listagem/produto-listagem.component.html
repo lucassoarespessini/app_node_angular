@@ -8,9 +8,9 @@
         </div>
         <div class="col-md-4" *ngFor="let produto of Produtos.data; let i = index">
           <div class="product-item">
-            <a href="#"><img src="{{REST_API+'/image/'+produto.imagem}}" alt=""></a>
+            <a href="/produto-detalhes/{{produto.id}}"><img src="{{REST_API+'/image/'+produto.imagem}}" alt=""></a>
             <div class="down-content">
-              <a href="#">
+              <a href="/produto-detalhes/{{produto.id}}">
                 <h4>{{produto.nome}}</h4>
               </a>
               <h6>R${{produto.preco}}</h6>
