@@ -16,7 +16,7 @@ import { Observable, throwError } from 'rxjs';
 export class ProdutoEditarComponent implements OnInit {
   getId: any;
   updateForm: FormGroup;
-  fileName: any = [];
+  fileName: any = "";
   REST_API: string = 'http://' + environment.LOCAL_HOST + ':' + environment.LOCAL_PORT;
 
   constructor(
