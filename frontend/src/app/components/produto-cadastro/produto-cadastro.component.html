@@ -10,13 +10,13 @@
                 </div>
                 <div class="col-md-6">
                     <div class="contact-form">
-                        <form [formGroup]="produtoForm" (ngSubmit)="onSubmit()">
+                        <form [formGroup]="produtoForm" (ngSubmit)="onSubmit()" ngNativeValidate>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <fieldset class="campos-juntos-label">
                                         <label>Nome:</label>
                                         <input formControlName="nome" type="text" class="form-control"
-                                            placeholder="Nome do Produto" required="">
+                                            placeholder="Nome do Produto" required>
                                     </fieldset>
                                 </div>
                                 <input class="form-control" formControlName="imagem" type="hidden" class="form-control"
@@ -60,7 +60,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-6" style="border:2px solid #eee; padding: 10px;">
+                <div class="col-md-6" style="border:3px solid #eee; padding: 10px;">
                     <input type="file" (change)="onFileSelected($event)" #fileUpload>
                     - {{fileName=="" ? "No file uploaded yet." : fileName }}
                     <div>
