@@ -23,7 +23,7 @@ export class ProdutoListagemComponent implements OnInit {
     console.log(id);
     if (window.confirm('Do you want to go ahead?')) {
       this.crudService.deleteProduto(id).subscribe((res) => {
-        this.Produtos.splice(i, 1);
+        this.Produtos.data.splice(i, 1);
       })
     }
   }
