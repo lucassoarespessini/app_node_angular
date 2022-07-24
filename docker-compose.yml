@@ -48,5 +48,3 @@ services:
     stdin_open: true
     tty: true
     container_name: frontend
-    # docker exec -it database  bash -c 'mysql --user="root" --database="jet_store_db" --password="123456"  < "/home/CreateTable.sql"'
-    # docker exec -it database  bash -c 'mysql --user="root" --database="jet_store_db" --password="123456"  < "/home/InsertInto.sql"'
