@@ -3,13 +3,15 @@
 ## Execute o sistema
 Execute o seguinte comando no repositório:
 ```bash
-docker-compose up
-```
-Ou pode ser executados em segundo plano com o comando:
-```bash
 docker-compose up -d
 ```
-Esse comando pode demorar 13 minutos, pois o Docker irá puxar as imagens MySQL, Node.js e Nginx (se sua máquina não tiver antes).
+Esse comando pode demorar 13 minutos, pois o Docker irá puxar as imagens MySQL, Node.js e Nginx (se sua máquina não tiver antes). Estará finalizado, quando printar as seguinte mensagem:
+
+```bash
+Creating database ... done
+Creating backend  ... done
+Creating frontend ... done
+```
 
 Com a configuração do <em>.env</em> que tem as seguintes variaveis setadas:
 ```bash
